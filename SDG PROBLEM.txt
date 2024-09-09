@@ -1,0 +1,13 @@
+                SDG 13: CLIMATE ACTION
+
+
+PROBLEM DEFINITION: Analyze how greenhouse gas concentrations (CO2, CH4, N2O) affect global temperatures over time.
+
+
+
+Greenhouse gases including CO2, CH4, among others, are increasing and enhancing climate change. 
+Countries will mitigate climate change only if they monitor and reduce such kinds of emissions. 
+The project shall look to analyze and visualize data on greenhouse gas emissions, showing tendencies and how they affect 
+global temperature over time.
+
+ 
