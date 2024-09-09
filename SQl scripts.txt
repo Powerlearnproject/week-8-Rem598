@@ -1,0 +1,145 @@
+                                  PART 3: SQL PROGRAMMING
+-- Create the Climate_Data table with columns for Year, Month, and various greenhouse gas concentrations
+CREATE TABLE Climate_Data (
+    Year INT,
+    Month INT,
+    Mei FLOAT,
+    CO2 FLOAT,
+    CH4 FLOAT,
+    N2O FLOAT,
+    CFC_11 FLOAT,
+    CFC_12 FLOAT,
+    TSI FLOAT,
+    Aerosols FLOAT,
+    Temp FLOAT
+);
+
+-- Select average temperature and CO2 for each year
+SELECT year, AVG(temp) AS average_temp, AVG(co2) AS average_co2
+FROM Climate_Data
+GROUP BY year
+ORDER BY year;
+
+-- Get the average temperature by year
+SELECT Year, AVG(Temp) AS Avg_Temperature
+FROM Climate_Data
+GROUP BY Year
+ORDER BY Year;
+
+-- Get the average concentrations of greenhouse gases (CO2, CH4, N2O, CFC_11, CFC_12) for each year
+SELECT Year, 
+       AVG(CO2) AS Avg_CO2, 
+       AVG(CH4) AS Avg_CH4, 
+       AVG(N2O) AS Avg_N2O, 
+       AVG(`CFC_11`) AS Avg_CFC11, 
+       AVG(`CFC_12`) AS Avg_CFC12
+FROM Climate_Data
+GROUP BY Year
+ORDER BY Year;
+
+-- Retrieve average temperature and greenhouse gas concentrations together for each year
+SELECT Year, 
+       AVG(Temp) AS Avg_Temperature, 
+       AVG(CO2) AS Avg_CO2, 
+       AVG(CH4) AS Avg_CH4, 
+       AVG(N2O) AS Avg_N2O, 
+       AVG(`CFC_11`) AS Avg_CFC11, 
+       AVG(`CFC_12`) AS Avg_CFC12
+FROM Climate_Data
+GROUP BY Year
+ORDER BY Year;
+
+-- Retrieve the year, month, and concentrations of the main greenhouse gases (CO2, CH4, N2O, CFC_11, CFC_12)
+SELECT Year, Month, CO2, CH4, N2O, CFC_11, CFC_12
+FROM Climate_Data
+ORDER BY Year, Month;
+
+-- Get year, month, and temperature data to analyze monthly temperature trends
+SELECT Year, Month, Temp
+FROM Climate_Data
+ORDER BY Year, Month;
+
+-- Retrieve all greenhouse gas concentrations along with temperature for each month
+SELECT 
+    cd.Year, 
+    cd.Month, 
+    cd.CO2, 
+    cd.CH4, 
+    cd.N2O, 
+    cd.CFC_11, 
+    cd.CFC_12, 
+    cd.Temp
+FROM 
+    Climate_Data cd
+ORDER BY 
+    cd.Year, cd.Month;
+
+-- Retrieve the average concentrations of the greenhouse gases and average temperature across the entire dataset
+SELECT 
+    AVG(CO2) AS avg_CO2, 
+    AVG(CH4) AS avg_CH4, 
+    AVG(N2O) AS avg_N2O, 
+    AVG(CFC_11) AS avg_CFC_11, 
+    AVG(CFC_12) AS avg_CFC_12, 
+    AVG(Temp) AS avg_Temp
+FROM 
+    Climate_Data;
+
+-- Analyze temperature trends over time by calculating the average temperature for each year
+SELECT 
+    Year, 
+    AVG(Temp) AS avg_Temperature
+FROM 
+    Climate_Data
+GROUP BY 
+    Year
+ORDER BY 
+    Year;
+
+-- Analyze greenhouse gas concentration trends based on temperature (grouped by Year) 
+-- This query helps observe how gas concentrations relate to temperature.
+SELECT 
+    Temp, 
+    AVG(CO2) AS avg_CO2, 
+    AVG(CH4) AS avg_CH4, 
+    AVG(N2O) AS avg_N2O, 
+    AVG(CFC_11) AS avg_CFC_11, 
+    AVG(CFC_12) AS avg_CFC_12
+FROM 
+    Climate_Data
+GROUP BY 
+    Year
+ORDER BY 
+    Temp;
+
+-- Retrieve all data from the Climate_Data table
+SELECT * FROM Climate_Data;
+
+-- Retrieve data for the year 2020 to examine trends and outliers in that specific year
+SELECT * FROM Climate_Data WHERE Year = 2000;
+
+-- Retrieve data for April 2000 for a more specific analysis of that month and year
+SELECT * FROM Climate_Data WHERE Year = 2000 AND Month = 4;
+
+-- Data Analysis
+-- Calculate the correlation between CO2 levels and temperature
+SELECT CO2, Temp
+FROM Climate_Data;
+
+-- Calculate the total CO2 emissions for each year
+SELECT Year, SUM(CO2) AS TotalCO2
+FROM Climate_Data
+GROUP BY Year;
+
+-- Retrieve temperature and average concentrations of all gases (CO2, CH4, N2O, CFC_11, CFC_12, TSI, Aerosols)
+-- and group them by temperature values
+SELECT Temp, 
+       AVG(CO2), 
+       AVG(CH4), 
+       AVG(N2O), 
+       AVG(CFC_11), 
+       AVG(CFC_12), 
+       AVG(TSI), 
+       AVG(Aerosols) AS Gases
+FROM Climate_Data
+GROUP BY Temp;
