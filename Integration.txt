@@ -1,0 +1,25 @@
+Documenting the Process of Importing Data
+
+Step 1: Ensure Database Accessibility
+Make sure your SQL database is accessible and that you have the necessary connection details (server name, database name, credentials).
+
+Step 2: Open Excel and Connect to Database
+Open a new Excel workbook.
+Go to the "Data" tab.
+Click on "Get Data" > "From Database" > "From SQL Server Database".
+
+Step 3: Enter Connection Details
+Server Name: Enter your SQL server name.
+Database Name (optional): Enter your database name if prompted.
+Click "OK".
+
+Step 4: Provide Credentials
+If prompted, select the appropriate authentication method:
+Windows Authentication if using Windows credentials.
+Database Authentication if you have a username and password for the database.
+Enter your credentials and click "Connect".
+
+Step 5: Select Data
+In the Navigator pane, you'll see a list of tables and views.
+Select the "Climate_Data" table.
+Click on "Load" to import the data into Excel.
